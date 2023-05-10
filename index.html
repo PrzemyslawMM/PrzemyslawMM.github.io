@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/04b2c7df05.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div id="main-info">
+        <p class="scroll" id="lookb">Prezentacje</p>
+        <p class="scroll" id="howb">Wyjaśnienie</p>
+        <p class="scroll" id="complexb">Złożoność</p>
+        <p class="scroll" id="autorsb">Autorzy</p>
+      </div>
+      <div id="kolor">
+        <p id="kolor-p">
+          <i
+            class="fa-regular lightbulb fa-2x fa-lightbulb"
+            style="color: #b30000"
+          ></i>
+        </p>
+      </div>
+    </nav>
+    <main>
+      <h1>QUICK SORT</h1>
+      <section id="look">
+        <h2>Prezentacja algorytmu</h2>
+        <div id="animations">
+          <div id="youtube">
+            <iframe
+              src="https://www.youtube.com/embed/PgBzjlCcFvc"
+              title="Quick Sort | GeeksforGeeks"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <img src="./Sorting_quicksort_anim.gif" />
+        </div>
+        <div id="code">
+          <div>#include &lt;iostream&gt;</div>
+          <div>using namespace std;</div>
+          <div>int partition(int arr[], int start, int end)</div>
+          <div>{</div>
+          <div class="t1">int pivot = arr[start];</div>
+          <div class="t1">int count = 0;</div>
+          <div class="t1">for (int i = start + 1; i <= end; i++) {</div>
+          <div class="t2">if (arr[i] <= pivot)</div>
+          <div class="t3">count++;</div>
+          <div class="t1">}</div>
+          <div class="t1">// Nadanie indexowi odpowiedniej pozycji</div>
+          <div class="t1">int pivotIndex = start + count;</div>
+          <div class="t1">swap(arr[pivotIndex], arr[start]);</div>
+          <div class="t1">// Sortowanie lewej i prawej części tablicy</div>
+          <div class="t1">int i = start, j = end;</div>
+          <div class="t1">while (i < pivotIndex && j > pivotIndex) {</div>
+          <div class="t2">while (arr[i] <= pivot) {</div>
+          <div class="t3">i++;</div>
+          <div class="t2">}</div>
+          <div class="t2">while (arr[j] > pivot) {</div>
+          <div class="t3">j--;</div>
+          <div class="t2">}</div>
+          <div class="t2">if (i < pivotIndex && j > pivotIndex) {</div>
+          <div class="t3">swap(arr[i++], arr[j--]);</div>
+          <div class="t2">}</div>
+          <div class="t1">}</div>
+          <div class="t1">return pivotIndex;</div>
+          <div>}</div>
+          <div>void quickSort(int arr[], int start, int end)</div>
+          <div>{</div>
+          <div class="t1">// podstawowy przypadek</div>
+          <div class="t1">if (start >= end)</div>
+          <div class="t2">return;</div>
+          <div class="t2">// partycjonowanie tablicy</div>
+          <div class="t1">int p = partition(arr, start, end);</div>
+          <div class="t1">// Sortowanie lewej części</div>
+          <div class="t1">quickSort(arr, start, p - 1);</div>
+          <div class="t1">// Sortowanie prawej części</div>
+          <div class="t1">quickSort(arr, p + 1, end);</div>
+          <div>}</div>
+          <div>int main()</div>
+          <div>{</div>
+          <div class="t1">int arr[] = { 9, 3, 4, 2, 1, 8 };</div>
+          <div class="t1">int n = 6;</div>
+          <div class="t1">quickSort(arr, 0, n - 1);</div>
+          <div class="t1">for (int i = 0; i < n; i++) {</div>
+          <div class="t2">cout << arr[i] << " ";</div>
+          <div class="t1">}</div>
+          <div class="t1">return 0;</div>
+          <div>}</div>
+        </div>
+      </section>
+      <section id="how">
+        <h2>Divide And Conquer</h2>
+        <p>
+          Dziel i zwyciężaj (ang. divide and conquer) – jedna z głównych metod
+          projektowania algorytmów w informatyce, prowadząca do bardzo
+          efektywnych rozwiązań. Nazwa pochodzi od łacińskiej sentencji dziel i
+          rządź. W strategii tej problem dzieli się rekurencyjnie na dwa lub
+          więcej mniejszych podproblemów tego samego (lub podobnego) typu, tak
+          długo, aż fragmenty staną się wystarczająco proste do bezpośredniego
+          rozwiązania. Z kolei rozwiązania otrzymane dla podproblemów scala się,
+          uzyskując rozwiązanie całego zadania
+        </p>
+        <p>
+          Algorytmami korzystającymi z tej metody są m.in.: sortowanie przez
+          scalanie (ang. mergesort), sortowanie szybkie (ang. quicksort),
+          wyszukiwanie binarne (ang. binary search), algorytm Cooleya-Tukeya
+          dokonujący szybkiej transformacji Fouriera, graficzny algorytm
+          Warnocka.
+        </p>
+        <h2>QUICK SORT</h2>
+        <p>
+          Sortowanie szybkie (ang. quicksort) - jeden z popularnych algorytmów
+          sortowania działających na zasadzie „dziel i zwyciężaj”. Sortowanie
+          szybkie (ang. QuickSort) zostało wynalezione w 1962 przez C.A.R.
+          Hoare’a. Algorytm sortowania szybkiego jest wydajny: jego średnia
+          złożoność obliczeniowa jest rzędu <span>O(n * log n)</span>. Ze
+          względu na szybkość i prostotę implementacji jest powszechnie używany.
+          Jego implementacje znajdują się w bibliotekach standardowych wielu
+          środowisk programowania. Z tablicy wybiera się element rozdzielający,
+          po czym tablica jest dzielona na dwa fragmenty: do początkowego
+          przenoszone są wszystkie elementy nie większe od rozdzielającego, do
+          końcowego wszystkie większe. Potem sortuje się osobno początkową i
+          końcową część tablicy. Rekursja kończy się, gdy kolejny fragment
+          uzyskany z podziału zawiera pojedynczy element, jako że
+          jednoelementowa tablica nie wymaga sortowania. Przez l oznacza się
+          indeks pierwszego, a przez r – ostatniego elementu sortowanego
+          fragmentu tablicy, zaś przez i – indeks elementu, na którym tablica
+          została podzielona.
+        </p>
+      </section>
+      <section id="complex">
+        <h2>Złożoność</h2>
+        <div id="info">
+          <div>
+            Złożoność algorytmu zależy od wyboru elementu rozdzielającego; jeśli
+            podziały są zrównoważone algorytm jest tak szybki jak sortowanie
+            przez scalanie, czyli <span>M(n) = n - 1</span> w przeciwnym
+            przypadku może działać tak wolno jak sortowanie przez wstawianie
+            <span>O(n<sup>2</sup>)</span> Średni czas działania przy losowym
+            wyborze elementu rozdzielającego, dorównuje przypadkowi
+            optymistycznemu.
+          </div>
+          <div>
+            <h3>Przypadek optymistyczny</h3>
+            W przypadku optymistycznym, jeśli mamy szczęście za każdym razem
+            wybrać medianę z sortowanego fragmentu tablicy, to liczba porównań
+            niezbędnych do uporządkowania n-elementowej tablicy opisana jest
+            rekurencyjnym wzorem
+            <span>T(n) = (n - 1) + 2T((n-1)/2) </span>
+            Dla dużych n: <span>T(n) ~ n + 2T(n/2)</span> co daje w rozwiązaniu
+            liczbę porównań (a więc wskaźnik złożoności czasowej):
+            <span>T(n) ~ n * log <sub>2</sub>(n)</span> Równocześnie otrzymuje
+            się minimalne zagnieżdżenie rekursji (czyli głębokość stosu, a co za
+            tym idzie, złożoność pamięciową):
+            <span>M(n) ~ log <sub>2</sub>(n)</span>
+          </div>
+          <div>
+            <h3>Przypadek przeciętny</h3>
+            W przypadku przeciętnym, to jest dla równomiernego rozkładu
+            prawdopodobieństwa wyboru elementu z tablicy:
+            <span>T(n) ~ 2n * ln(n) ~ 1,39n * log<sub>2</sub>(n)</span>
+            złożoność jest o 39% wyższa, niż w przypadku optymistycznym.
+          </div>
+          <div>
+            Przypadek pesymistyczny W przypadku pesymistycznym, jeśli zawsze
+            wybierzemy element najmniejszy (albo największy) w sortowanym
+            fragmencie tablicy, to: <span>T(n) = n - 1 + T(n-1)</span>skąd
+            wynika kwadratowa złożoność czasowa:
+            <span>T(n) = (n<sup>2</sup> - n)/2 </span>co w przybliżeniu
+            daje<span> n<sup>2</sup>/2</span> W tym przypadku otrzymuje się też
+            olbrzymią, liniową złożoność pamięciową:
+            <span>M(n) = n - 1</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="autors">
+      <p>Przemysław Małecki</p>
+      <p>Bartłomiej Cira</p>
+    </footer>
+  </body>
+</html>
