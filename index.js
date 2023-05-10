@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll(".scroll");
-const color = document.querySelector("#kolor-p");
+const color = document.querySelector("#kolor");
 let light = true;
 
 buttons.forEach((el) => {
